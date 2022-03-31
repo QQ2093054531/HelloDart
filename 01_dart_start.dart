@@ -8,6 +8,7 @@ void variable(){
     'tags':['saturn'],
     'url':'//path/to/saturn.jpg'
   };
+  print(flybyObjects);
 }
 void main(){
   variable();
