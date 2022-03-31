@@ -86,10 +86,10 @@ void Get_max(int a,int b){
 // }
 // }
 //使用Spacecraft类
-void use_spaceC(){
-  var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
-  voyager.describe();
-}
+// void use_spaceC(){
+//   var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
+//   voyager.describe();
+// }
 
 void main(){
   print('变量：');
@@ -100,5 +100,5 @@ void main(){
   print(fibonacci(10));
   print('\n找较大值：');
   Get_max(1,3);//math包的和函数使用
-  use_spaceC();
+  
 }
