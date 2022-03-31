@@ -86,7 +86,6 @@ void Get_max(int a,int b){
 // }
 // }
 
-//使用
 
 
 void main(){
