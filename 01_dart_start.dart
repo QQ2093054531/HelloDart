@@ -3,7 +3,7 @@
 import 'dart:math';//Importing core libraries
 //import 'package:test/test.dart';//Importing libraries from external package
 import '01_dart_start.dart';//Importing files
-
+import 'Spacecraft.dart';
 //变量https://dart.cn/samples#variables
 void variable(){
   var name='Voyager I';
@@ -62,7 +62,7 @@ void Get_max(int a,int b){
   print(max(a,b));
 }
 
-//类https://dart.cn/samples#classes
+// 类https://dart.cn/samples#classes
 // class Spacecraft{
 //   string name;
 //   DateTime? launchDate;
@@ -85,8 +85,11 @@ void Get_max(int a,int b){
 //   }
 // }
 // }
-
-
+//使用Spacecraft类
+void use_spaceC(){
+  var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
+  voyager.describe();
+}
 
 void main(){
   print('变量：');
@@ -97,5 +100,5 @@ void main(){
   print(fibonacci(10));
   print('\n找较大值：');
   Get_max(1,3);//math包的和函数使用
-  
+  use_spaceC();
 }
