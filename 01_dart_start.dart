@@ -1,7 +1,7 @@
 //导入https://dart.cn/samples#imports
 //使用import关键字访问
 import 'dart:math';//Importing core libraries
-import 'package:test/test.dart';//Importing libraries from external package
+//import 'package:test/test.dart';//Importing libraries from external package
 import '01_dart_start.dart';//Importing files
 
 //变量https://dart.cn/samples#variables
@@ -57,7 +57,36 @@ int fibonacci(int n){
   return fibonacci(n-1)+fibonacci(n-1);
 }
 
+//包的使用
+void Get_max(int a,int b){
+  print(max(a,b));
+}
 
+//类https://dart.cn/samples#classes
+// class Spacecraft{
+//   string name;
+//   DateTime? launchDate;
+//   int? get launchYear=>launchDate?.year;
+
+//   spacecraft(this.name,this.launchDate){
+// // Initialization code goes here.
+//   }
+// // Named constructor that forwards to the default one.
+// Spacecraft.unlaunched(String name) : this(name, null);
+
+// void describe(){
+//   print('Spacecraft:$ name');
+//   var launchDate=this.launchDate;
+//   if(launchDate!=null){
+//     int years =DateTime.now().difference(launchDate).inDays~/365;
+//     print('Launched: $launchYear($years years ago)');
+//   }else{
+//     print('Unlaunched');
+//   }
+// }
+// }
+
+//使用
 
 
 void main(){
@@ -67,5 +96,7 @@ void main(){
   controling();
   print('\n函数：');
   print(fibonacci(10));
+  print('\n找较大值：');
+  Get_max(1,3);//math包的和函数使用
   
 }
