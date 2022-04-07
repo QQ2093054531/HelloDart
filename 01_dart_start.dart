@@ -90,7 +90,38 @@ void Get_max(int a,int b){
 //   var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
 //   voyager.describe();
 // }
+class Spacecraft {
+  String name;
+  DateTime? launchDate;
 
+  // Read-only non-final property
+  int? get launchYear => launchDate?.year;
+
+  // Constructor, with syntactic sugar for assignment to members.
+  Spacecraft(this.name, this.launchDate) {
+    // Initialization code goes here.
+  }
+
+  // Named constructor that forwards to the default one.
+  Spacecraft.unlaunched(String name) : this(name, null);
+
+  // Method.
+  void describe() {
+    print('Spacecraft: $name');
+    // Type promotion doesn't work on getters.
+    var launchDate = this.launchDate;
+    if (launchDate != null) {
+      int years = DateTime.now().difference(launchDate).inDays ~/ 365;
+      print('Launched: $launchYear ($years years ago)');
+    } else {
+      print('Unlaunched');
+    }
+  }
+}
+void use_spaceC(){
+  var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
+  voyager.describe();
+}
 void main(){
   print('变量：');
   variable();
@@ -100,5 +131,5 @@ void main(){
   print(fibonacci(10));
   print('\n找较大值：');
   Get_max(1,3);//math包的和函数使用
-  
+  use_spaceC();
 }
