@@ -90,7 +90,7 @@ void Get_max(int a,int b){
 //   var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
 //   voyager.describe();
 // }
-class Spacecraft {
+class Spacecraft {//类https://dart.cn/samples#classes
   String name;
   DateTime? launchDate;
 
@@ -122,6 +122,16 @@ void use_spaceC(){
   var voyager=Spacecraft('voyager I',DateTime(1977,9,5));
   voyager.describe();
 }
+
+class Orbiter extends Spacecraft{//扩展类https://dart.cn/samples#inheritance
+  double altitude;
+  Orbiter(String name,DateTime launchDate, this.altitude)
+  :super(name, launchDate);
+}
+void Dream_space(){
+  var voyager=Orbiter('长征一号',DateTime(1970,4,24),300);
+  voyager.describe();
+}
 void main(){
   print('变量：');
   variable();
@@ -131,5 +141,7 @@ void main(){
   print(fibonacci(10));
   print('\n找较大值：');
   Get_max(1,3);//math包的和函数使用
+  print('\n飞行器：');
   use_spaceC();
+  Dream_space();
 }
