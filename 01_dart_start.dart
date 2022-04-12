@@ -132,6 +132,19 @@ void Dream_space(){
   var voyager=Orbiter('长征一号',DateTime(1970,4,24),300);
   voyager.describe();
 }
+mixin Piloted{//Mixins https://dart.cn/samples#mixins
+  int astronauts=1;
+  void describeCrew(){
+    print('Number of astronauts: $astronauts');
+  }
+}
+class PilotedCraft extends Spacecraft with Piloted{
+  
+}
+void NumAstronauts(){
+  var num=PilotedCraft();
+  num.describeCrew();
+}
 void main(){
   print('变量：');
   variable();
@@ -144,4 +157,6 @@ void main(){
   print('\n飞行器：');
   use_spaceC();
   Dream_space();
+  print('\n宇航员数量');
+  NumAstronauts();
 }
