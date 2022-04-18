@@ -207,7 +207,6 @@ void the_public_methods() {
   loudTeas.forEach(print);
   var loadTeas_str = loudTeas = teas.map((e) => e.toUpperCase()).toList();
   print(loadTeas_str);
-  
 
   teas = ['green', 'black', 'chamomile', 'earl grey'];
 
