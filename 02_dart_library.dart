@@ -274,20 +274,35 @@ void dates_and_times() {
   y2k = DateTime.utc(2000);
 
   //指定自 Unix 纪元以来的日期和时间（以毫秒为单位）。
-  y2k = DateTime.fromMillisecondsSinceEpoch(946684800000,isUtc: true);
+  y2k = DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
 
   //解析 ISO 8601 日期
-  y2k=DateTime.parse('2000-01-01T00:00:00Z');
+  y2k = DateTime.parse('2000-01-01T00:00:00Z');
 
   //1/1/2000, 用UTC表示
-  y2k=DateTime.utc(2000);
-  assert(y2k.millisecondsSinceEpoch==946684800000);
+  y2k = DateTime.utc(2000);
+  assert(y2k.millisecondsSinceEpoch == 946684800000);
 
   //加一年
-  var y2001=y2k.add(const Duration(days: 366));
-  assert(y2001.year==2001);
-  
+  var y2001 = y2k.add(const Duration(days: 366));
+  assert(y2001.year == 2001);
+
+  //减30天
+  var december2000 = y2001.subtract(const Duration(days: 30));
+  assert(december2000.year == 2000);
+  assert(december2000.month == 12);
+
+  //计算两个不同日期的差距
+  var duration = y2001.difference(y2k);
+  assert(duration.inDays==366);
+
 }
+
+//工具类  https://dart.cn/guides/libraries/library-tour#utility-classes
+//异常  https://dart.cn/guides/libraries/library-tour#exceptions
+
+//异步  https://dart.cn/guides/libraries/library-tour#dartasync---asynchronous-programming
+
 
 void main() {
   collections();
