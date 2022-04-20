@@ -294,16 +294,49 @@ void dates_and_times() {
 
   //计算两个不同日期的差距
   var duration = y2001.difference(y2k);
-  assert(duration.inDays==366);
-
+  assert(duration.inDays == 366);
 }
 
 //工具类  https://dart.cn/guides/libraries/library-tour#utility-classes
 //异常  https://dart.cn/guides/libraries/library-tour#exceptions
 
 //异步  https://dart.cn/guides/libraries/library-tour#dartasync---asynchronous-programming
+//数学和随机数 https://dart.cn/guides/libraries/library-tour#dartmath---math-and-random
+void math_and_random() {
+  print('\n');
+  print('#' * 40);
+  print('数字和随机数');
+  print('#' * 40);
 
+  //cos
+  assert(cos(pi) == -1);
 
-void main() {
+  //sin
+  var degrees = 30;
+  var radians = degrees * (pi / 180);
+  var sinOf30degrees = sin(radians);
+  assert((sinOf30degrees - 0.5).abs() < 0.01);
+  assert(max(1, 1000) == 1000);
+  assert(min(1, -1000) == -1);
+
+  print(e);
+  print(pi);
+  print(sqrt2);
+
+  var random = Random();
+  var value1 = random.nextDouble();
+  print('nextDouble:$value1');
+  var value2 = random.nextInt(10);
+  print('nextInt:$value2');
+  var value3 = random.nextBool();
+  print('nextBool:$value3');
+}
+
+void main(List<String> args) {
+  dartcore_numbers_collection_string_and_more();
+
   collections();
+  dates_and_times();
+  math_and_random();
+  print('done.');
 }
