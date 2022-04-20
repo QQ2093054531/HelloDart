@@ -229,6 +229,66 @@ void collections() {
   the_public_methods();
 }
 
+//URIs  https://dart.cn/guides/libraries/library-tour#uris
+void the_Uris() {
+  //编码和解码完整合法的URI
+  var uri = 'https://example.org/api?foo=some message';
+  var encoded = Uri.encodeFull(uri);
+  assert(encoded == 'https://example.org/api?foo=some message');
+  var decoded = Uri.decodeFull(encoded);
+  assert(uri == decoded);
+
+  //编码和解码URI组件
+  uri = 'https://example.org/api?foo=some message';
+  encoded = Uri.encodeComponent(uri);
+  assert(encoded == 'https%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
+  decoded = Uri.decodeComponent(encoded);
+  assert(uri == decoded);
+
+  //解析URI
+  var uri2 = Uri.parse('https://example.org:8080/foo/bar#frag');
+  assert(uri2.scheme == 'https');
+  assert(uri2.host == 'example.org');
+  assert(uri2.path == '/foo/bar');
+  assert(uri2 == 'frag');
+  assert(uri2 == 'https://example.org:8080');
+}
+
+//日期和时间  https://dart.cn/guides/libraries/library-tour#dates-and-times
+void dates_and_times() {
+  print('\n');
+  print('#' * 40);
+  print('日期和时间');
+  print('#' * 40);
+
+  //得到最近的日期和时间
+  var now = DateTime.now();
+
+  //得到本地时
+  var y2k = DateTime(2000);
+
+  //特定月和天
+  y2k = DateTime(2000, 1, 2);
+
+  //将日期指定为UTC时间
+  y2k = DateTime.utc(2000);
+
+  //指定自 Unix 纪元以来的日期和时间（以毫秒为单位）。
+  y2k = DateTime.fromMillisecondsSinceEpoch(946684800000,isUtc: true);
+
+  //解析 ISO 8601 日期
+  y2k=DateTime.parse('2000-01-01T00:00:00Z');
+
+  //1/1/2000, 用UTC表示
+  y2k=DateTime.utc(2000);
+  assert(y2k.millisecondsSinceEpoch==946684800000);
+
+  //加一年
+  var y2001=y2k.add(const Duration(days: 366));
+  assert(y2001.year==2001);
+  
+}
+
 void main() {
   collections();
 }
