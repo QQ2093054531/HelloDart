@@ -1,3 +1,5 @@
+// 静态服务器 （https://github.com/dart-lang/samples/blob/master/server/simple/bin/server.dart）
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -8,7 +10,7 @@ import 'package:shelf_router/shelf_router.dart' as shelf_router;
 import 'package:shelf_static/shelf_static.dart' as shelf_static;
 
 Future<void> main(List<String> args) async {
-  final port = int.parse(Platform.environment['PORT'] ?? '8080');
+  final port = int.parse(Platform.environment['PORT'] ?? '7024');
 
   final cascade = Cascade().add(_staticHandler);
 
@@ -21,4 +23,3 @@ Future<void> main(List<String> args) async {
 
 final _staticHandler =
     shelf_static.createStaticHandler('public', defaultDocument: 'index.html');
-
